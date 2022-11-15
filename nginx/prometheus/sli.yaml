@@ -1,0 +1,5 @@
+---
+    spec_version: '1.0'
+    indicators:
+      rt_p95_TA: sampler_sum{job="prometheus", label="Transaction_Home", quantile="0.95"}
+      fr_TA: ((sampler_total_cnt {instance="10.244.210.192:9270", job="prometheus", label="Nginx_App"}   - sampler_total_sc {instance="10.244.210.192:9270", job="prometheus", label="Nginx_App"}  ) * 100)/sampler_total_cnt
